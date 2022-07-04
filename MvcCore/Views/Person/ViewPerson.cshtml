@@ -1,0 +1,28 @@
+﻿@model IEnumerable< MvcCore.Models.PersonModel>
+
+@{
+    ViewBag.Title = "view person page";
+}
+This is person view page 
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    @*<table>
+
+        <tr>
+            <td>    </td>
+        </tr>
+        <tr>
+            <td>    </td>
+        </tr>
+    </table>*@
+
+    @foreach (var p in Model)
+    {
+        @p.FirstName
+    }
+</body>
+</html>
