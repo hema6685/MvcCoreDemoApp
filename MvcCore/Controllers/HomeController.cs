@@ -32,14 +32,14 @@ namespace MvcCore.Controllers
 
         
         [Route("Home/Details/{id?}")]
-        public ViewResult Details(int? id)
+        public ViewResult Details(int id)
         {
             /*Employee model = _employeeRepository.GetEmployee(1);//default view of employee having id=1
             //return _employeeRepository.GetEmployee(1).Name;
             //return View("Test");
             ViewBag.PageTitle = "Emplyee Details (view bag title)";*/
 
-            Employee employee = _employeeRepository.GetEmployee(id.Value);
+            Employee employee = _employeeRepository.GetEmployee(id);
             if(employee== null)
             {
                 Response.StatusCode = 404;
@@ -48,7 +48,7 @@ namespace MvcCore.Controllers
 
                 HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
                 {
-                    Employee = _employeeRepository.GetEmployee(id ?? 1),
+                    Employee = _employeeRepository.GetEmployee(id),
                     PageTitle = "Employee Details"
                 };
 
